@@ -1,17 +1,18 @@
 package me.barlots.depotx.entity
 
 import java.util.*
-import javax.persistence.Table
+import javax.persistence.*
 
-@Table
-abstract class HostedFile: DatabaseEntity {
-    var Name: String
-    var Path: String
-    var Created: Date
+@DiscriminatorColumn(name = "Discriminator", discriminatorType = DiscriminatorType.STRING)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@MappedSuperclass
+abstract class HostedFile(): DatabaseEntity() {
+    var name: String = ""
+    var path: String = ""
+    var created: Date = Date()
 
-    constructor(name: String, path: String) {
-        Name = name
-        Path = path
-        Created = Date()
+    constructor(name: String, path: String) : this() {
+        this.name = name
+        this.path = path
     }
 }

@@ -1,10 +1,12 @@
 package me.barlots.depotx.entity
 
-import org.hibernate.type.ImageType
+import me.barlots.depotx.enums.ImageType
 import javax.persistence.DiscriminatorValue
+import javax.persistence.Entity
 
+@Entity
 @DiscriminatorValue("Image")
-class Image(type: ImageType, identifier: String, name: String, path: String) : HostedFile(name, path) {
-    var Identifier: String = identifier
-    var Type: ImageType = type
+class Image() : HostedFile() {
+    var identifier: String = ""
+    var type: ImageType = ImageType.FULL
 }
