@@ -1,15 +1,11 @@
 package me.barlots.depotx.entity
 
 import javax.persistence.*
+import javax.persistence.Entity
 
 @Table
 @Entity
-class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id")
-    var id: Long = 0
-
+class User : DatabaseEntity() {
     @Column(name = "Content", nullable = true)
     var content: String? = null
 }
