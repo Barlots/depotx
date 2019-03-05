@@ -9,4 +9,3 @@ class DepotxApplication
 fun main(args: Array<String>) {
 	runApplication<DepotxApplication>(*args)
 }
-

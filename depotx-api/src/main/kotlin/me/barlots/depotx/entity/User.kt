@@ -6,6 +6,9 @@ import javax.persistence.Entity
 @Table
 @Entity
 class User : DatabaseEntity() {
-    @Column(name = "Content", nullable = true)
-    var content: String? = null
+    @Column(nullable = false)
+    var userName: String = ""
+
+    @OneToMany(mappedBy = "uploader", fetch = FetchType.EAGER)
+    var uploaders: List<Uploader> = emptyList()
 }

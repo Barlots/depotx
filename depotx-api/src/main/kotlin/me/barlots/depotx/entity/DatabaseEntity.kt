@@ -7,5 +7,5 @@ abstract class DatabaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    internal var id: Long = 0
+    internal var id: Long? = null
 }
